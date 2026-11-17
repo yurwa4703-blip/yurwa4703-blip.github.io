@@ -1,0 +1,78 @@
+/* Single-image hero variant. Original index.html is unchanged. */
+main.hero-image-page {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: 110px 0 0;
+  background-color: #f7f4eb;
+}
+.hero-image-cover { position: relative; width: 100%; }
+.hero-cover-image { display: block; width: 100%; height: auto; }
+.hero-accessible-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 768px) {
+  main.hero-image-page { padding-top: 155px; }
+}
+
+/* Hero palette: ivory, cobalt blue, lime, charcoal */
+body { background-color: #f7f4eb; color: #191919; }
+header { background-color: rgba(247, 244, 235, 0.95); box-shadow: 0 1px 0 #dedbd2; }
+.logo { color: #1246ed; }
+.head nav ul li a { color: #191919; }
+.head nav ul li a:hover { color: #1246ed; }
+a:focus-visible, button:focus-visible { outline: 3px solid #1246ed; outline-offset: 5px; }
+::selection { background-color: #d4ff35; color: #191919; }
+
+#about { background-color: #f7f4eb; }
+.about-title, .title { color: #1246ed; }
+.about-left h3, .history-block ul li strong { color: #191919; }
+.about-left p, .history-block ul li { color: #55565c; }
+.about-right { background-color: #eeeff8; border: 1px solid #d7ddf5; }
+.history-block h4, .skill-block h4 { color: #1246ed; border-bottom-color: #cbd4f3; }
+.about-visual { background-color: #f7f4eb; border-color: #d7ddf5; }
+#about .about-visual figcaption { color: #1246ed; background-color: #f7f4eb; }
+#about .skill-tags span { background-color: #fdfcf8; color: #2442a3; border-color: #cbd4f3; box-shadow: none; }
+#about .skill-tags span:hover { background-color: #d4ff35; color: #191919; border-color: #b7d92b; }
+
+#works { background-color: #eeeff8; }
+.title::after { background-color: #1246ed; }
+.thumb-wrap { background-color: #f7f4eb; border-color: #d7ddf5; }
+.box p { color: #191919; }
+.box:hover p { color: #1246ed; }
+.box:hover .thumb-wrap { box-shadow: 0 12px 24px rgba(18, 70, 237, 0.14); }
+.hover-text { background-color: rgba(18, 70, 237, 0.65); color: #d4ff35; }
+
+#contact-wrap { background-color: #1246ed; }
+.contact-title { color: #d4ff35; border-bottom-color: #8fa8ff; }
+.contact-left h3 { color: #ffffff; }
+.contact-left p { color: #e3e9ff; }
+.contact-box { background-color: #1038bd; border: 1px solid #6486f4; }
+.contact-box .label { color: #d4ff35; }
+.contact-box .info { color: #ffffff; }
+.contact-box:hover { background-color: #d4ff35; border-color: #d4ff35; }
+.contact-box:hover .label, .contact-box:hover .info { color: #191919; }
+#contact-wrap a:focus-visible { outline-color: #d4ff35; }
+
+#footer { background-color: #171a24; color: #e3e6ef; }
+#footer .attr, #footer a { color: #b6bed2; }
+#footer a:hover { color: #d4ff35; }
+#backToTop { background-color: #1246ed; color: #ffffff; }
+#backToTop:hover { background-color: #d4ff35; color: #191919; }
+
+.modal { background-color: rgba(14, 20, 42, 0.88); }
+.modal-content { background-color: #f7f4eb; }
+.modal-content h2, .web-modal-info h3 { color: #191919; }
+.web-overview { border-top-color: #d7ddf5; }
+.btn { color: #1246ed; border-color: #1246ed; }
+.btn:hover, .modal-close-btn { background-color: #1246ed; border-color: #1246ed; color: #ffffff; }
+.modal-close-btn:hover, .close:hover { background-color: #d4ff35; color: #191919; }
+.close { background-color: #f7f4eb; color: #1246ed; }

@@ -1,356 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nike Style Webpage</title>
-    <style>
-        /* 기본 초기화 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .top-menu {
-            height: 40px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 0 40px;
-            gap: 25px;
-            font-size: 13px;
-            border-bottom: 1px solid #eee;
-        }
-        body {
-            font-family: 'Apple SD Gothic Neo', sans-serif;
-            color: #111;
-            background-color: #fff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* 헤더 스타일 */
-        .header {
-            border-bottom: 1px solid #e5e5e5;
-            padding: 15px 40px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo{width: 150px;}
-        .logo img{width: 100%; height: auto; object-fit: cover;}
-        .nike-logo {
-            font-size: 24px;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -1px;
-        }
-
-        .main-nav {
-            display: flex;
-            gap: 30px;
-            font-weight: 600;
-        }
-
-        .utility-menu {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .utility-menu input {
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            background: #f5f5f5;
-            outline: none;
-        }
-
-        /* 메인 배너 스타일 */
-        .main-banner {
-            width: 100%;
-            max-height: 1000px;
-            overflow: hidden;
-            background: #f0f0f0;
-        }
-
-        .banner-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        /* 상품 섹션 공통 스타일 */
-        .product-section {
-            padding: 60px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .product-section h2 {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 25px;
-        }
-
-        /* 상품 그리드 레이아웃 (4열) */
-        .product-grid {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        /*  (BEST ITEM용) */
-        .product-grid.three-cols {
-            display: flex;
-            
-            gap : 20px;
-            justify-content: center;
-        }
-        .product-card {
-            background: #fff;
-            cursor: pointer;
-        }
-        .product-card .img-box {
-            width: 100%;
-            height: 350px;
-            background-color: #f6f6f6;
-            border-radius: 12px;
-            margin-bottom: 12px;
-        }
-        .product-card .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .product-card .img-box img .small-box{
-            width: 70%;
-            height: 220px;
-            margin: 0 auto;
-        }
-        .product-card .img-box img .small-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-info .name {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 4px;
-        }
-
-        .product-info .price {
-            font-size: 15px;
-            font-weight: 700;
-            color: #111;
-        }
-
-        /* 푸터 스타일 */
-        .footer {
-            background-color: #e5e5e5;
-            padding: 40px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            font-weight: bold;
-            color: #333;
-        }
-
-.top-menu {padding: 0 5%; color: #666;}
-.header {padding: 18px 5%;}
-.top-bar {max-width: 1400px; margin: 0 auto; gap: 24px;}
-.logo {width: 100px;}
-.logo img {display: block;}
-.main-nav {gap: 30px; font-size: 16px;}
-.utility-menu input {padding: 10px 16px; width: 160px;}
-.banner-image img {display: block;}
-.product-section {width: 90%; max-width: 1400px; padding: 70px 0;}
-.product-section h2 {font-size: 28px; letter-spacing: -0.5px; margin-bottom: 28px;}
-.product-grid {gap: 2%;}
-.product-card {width: 23.5%;}
-.product-grid.three-cols {gap: 2%; justify-content: center;}
-.product-grid.three-cols .product-card {width: 23.5%;}
-.product-card .img-box {height: auto; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; margin-bottom: 16px;}
-.product-card .img-box img {display: block;}
-.product-info .name {font-size: 16px; line-height: 1.5; font-weight: 600; margin-bottom: 8px;}
-.product-info .price {font-size: 15px;}
-.footer {padding: 55px 5%; line-height: 1.8;}
-.footer-content {gap: 14px;}
-@media (max-width: 800px) {
- .top-bar {flex-wrap: wrap;}
- .main-nav {order: 3; width: 100%; overflow-x: auto; padding: 8px 0;}
- .product-section {padding: 50px 0;}
- .product-grid, .product-grid.three-cols {flex-wrap: wrap; justify-content: space-between; gap: 28px 0;}
- .product-card, .product-grid.three-cols .product-card {width: 48%;}
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/favicon.png" type="image/png">
 </head>
+
 <body>
-    <div class="top-menu">
-        <a href="#">매장 찾기</a>
-        <span>|</span>
-        <a href="#">주문 및 반품</a>
-        <span>|</span>
-        <a href="#">도움말</a>
-    </div>
-
-    <!-- 상단 헤더 -->
-    <header class="header">
-        <div class="top-bar">
-            <div class="logo">
-                <span class="nike-logo"><img src="img/logo.jpg" alt="logo"></span>
-            </div>
-            <nav class="main-nav">
-                <a href="#">Sale</a>
-                <a href="#">Men</a>
-                <a href="#">Women</a>
-                <a href="#">Kids</a>
-                <a href="#">Lifestyle</a>
-            </nav>
-            <div class="utility-menu">
-                <input type="text" placeholder="검색">
-                <a href="#">🛒</a>
-                <a href="#">🤍</a>
-            </div>
-        </div>
+  <main id="home">
+    <canvas id="hero-particles" aria-hidden="true"></canvas>
+    <header>
+      <div class="head">
+        <div class="logo"><a href="#home">PORTFOLIO</a></div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#works">Projects</a></li>
+            <li><a href="#contact-wrap">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
-
-    <!-- 메인 배너 영역 -->
-    <section class="main-banner">
-        <div class="banner-image">
-            <img src="img/hero.png" alt="hero">
+    <div class="hero-profile">
+      <div class="profile-text">
+        <h1>
+           <span>안녕하세요.</span>
+          <strong>My Creative Journey</strong>
+        </h1>
+        <p>
+          나만의 감각으로 완성해 가는 디자인 이야기
+        </p>
+        <div class="skills">
+          <span class="skill-badge">Motion Graphics</span>
+          <span class="skill-badge">Web Design</span>
+          <span class="skill-badge">Video Editing</span>
         </div>
-    </section>
-
-    <!-- Products For You 섹션 -->
-    <section class="product-section">
-        <h2>Products For You</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="img-box"><img src="img/shoes6.png" alt="shoes6"></div>
-                <div class="product-info">
-                    <p class="name">나이키 에어포스 1'07 SE</p>
-                    <p class="price">149,000</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/tshirt6.png" alt="tshirt6"></div>
-                <div class="product-info">
-                    <p class="name">스포츠웨어</p>
-                    <p class="price">46,700</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/shoes4.png" alt="shoes4"></div>
-                <div class="product-info">
-                    <p class="name">나이키 에어포스 1'07</p>
-                    <p class="price">149,000</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/tshirt5.png" alt="tshirt5"></div>
-                <div class="product-info">
-                    <p class="name">드라이 핏 팬츠</p>
-                    <p class="price">120,000</p>
-                </div>
-            </div>
+      </div>
+      <div class="profile-image-wrap">
+        <div class="profile-frame">
+          <img src="img/profile.jpg" alt="20대디자이너 프로필" class="profile-img">
         </div>
-    </section>
+      </div>
+    </div>
+  </main>
 
-    <!-- BEST ITEM 섹션 -->
-    <section class="product-section">
-        <h2>BEST ITEM</h2>
-        <div class="product-grid three-cols">
-            <div class="product-card">
-                <div class="img-box"><img src="img/Tshirt1.png" alt="Tshirt1"></div>
-                <div class="product-info">
-                    <p class="name">나이키 스포츠웨어</p>
-                    <p class="price">46,700</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/shoes1.png" alt="shoes1"></div>
-                <div class="product-info">
-                    <p class="name">나이키 줌 보메로5</p>
-                    <p class="price">160,000</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/cap1.png" alt="cap1"></div>
-                <div class="product-info">
-                    <p class="name">언스트럭처드 퓨추라 워시캡</p>
-                    <p class="price">29,700</p>
-                </div>
-            </div>
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-left">
+        <h2 class="about-title">About Me</h2>
+        <figure class="about-visual">
+          <img src="img/about-creative.jpg" alt="그래픽과 영상 편집 작업을 준비하는 디자이너의 작업 공간" width="1440" height="600" loading="lazy">
+          <figcaption>GRAPHIC DESIGN · MOTION · VISUAL THINKING</figcaption>
+        </figure>
+        <h3><br>꾸준히 배우고 성장하는 사람</h3>
+        <p>
+          안녕하세요. 새로운 것을 배우고 도전하는 것을 좋아하는 김지민입니다.</p>
+        <p>맡은 일에 책임감을 가지고 꼼꼼하게 작업하려고 노력하며, 작은 부분까지 신경 쓰는 세심함을 가지고 있습니다. 다양한 디자인과 영상편집 작업을 통해 저만의 감각과 역량을 키워 나가고 있습니다.</p>
+        <p>
+          앞으로도 꾸준히 배우고 성장하며 좋은 결과물을 만들어 내는 사람이 되겠습니다.</p>
+      </div>
+      <div class="about-right">
+        <div class="history-block">
+          <h4>Experience & Education</h4>
+          <ul>
+             <li><strong>2022.03 ~ 2024.12 · 졸업</strong>고등학교</li><li><strong>2025.03 ~ 2028.02 · 재학중</strong>영진전문대학교 · 컴퓨터정보계열/게임메타버스과</li><li><strong>2025.08.19 ~ 2025.08.22 · 교육이수</strong>기술사관 육성사업 기계.IT 분야 융복합 순회연수</li><li><strong>Certifications & License</strong>운전면허 2종 보통· ITQ 한글 A등급 · ITQ 파워포인트 A등급  · ITQ 엑셀 A등급 · ITQ MS워드 A등급 </li></ul>
         </div>
-    </section>
-
-    <!-- NEW 섹션 -->
-    <section class="product-section">
-        <h2>NEW</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="img-box"><img src="img/shoes3.png" alt="shoes3"></div>
-                <div class="product-info">
-                    <p class="name">에어 조던1 로우G</p>
-                    <p class="price">189,000</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/tshirt7.png" alt="tshirt7"></div>
-                <div class="product-info">
-                    <p class="name">나이키 스포츠 웨어</p>
-                    <p class="price">44,000</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/tshirt8.png" alt="tshirt8"></div>
-                <div class="product-info">
-                    <p class="name">코듀로이 재킷</p>
-                    <p class="price">189,000</p>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box"><img src="img/shoes7.png" alt="shoes7"></div>
-                <div class="product-info">
-                    <p class="name">나이키 문슈 OG</p>
-                    <p class="price">139,000</p>
-                </div>
-            </div>
+        <div class="skill-block">
+          <h4>Skills</h4>
+          <div class="skill-tags">
+            <span>Photoshop</span>
+            <span>Illustrator</span>
+            <span>Indesigin</span>
+            <span>Premiere Pro</span>
+            <span>After Effects</span>
+            <span>Figma</span>
+            <span>HTML/CSS</span>
+            <span>MS Office</span>
+            <span>한글(HWP)</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 하단 푸터 -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="#">고객센터</a>
-                <a href="#">매장찾기</a>
-                <a href="#">주문배송</a>
-            </div>
-            <p class="company-info">(유)나이키코리아 | 대표 데이비드올파민 | 서울시 강남구 테헤란로...</p>
-            <p class="copyright">© 2026 Nike, Inc. All Rights Reserved.</p>
+  <section id="works">
+    <h2 class="title">Projects</h2>
+    <div class="gallery">
+      <div class="box" onclick="openModal('project1')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-poster.jpg" alt="Poster Design" class="thumbnail">
+          <div class="hover-text">VIEW</div>
         </div>
-    </footer>
+        <p>Poster Design</p>
+      </div>
+      <div class="box" onclick="openModal('project2')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-cardnews.jpg" alt="Card News Design" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>Card News Design</p>
+      </div>
+      <div class="box" onclick="openModal('project3')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-sns.jpg" alt="SNS Banner Design" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>SNS Banner Design</p>
+      </div>
+      <div class="box" onclick="openModal('project4')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-video.jpg" alt="Video Editing" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>Video Editing</p>
+      </div>
 
+      <div class="box" onclick="openModal('project5')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-detail.jpg" alt="Detail Page Design" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>Detail Page Design</p>
+      </div>
+      <div class="box" onclick="openModal('project6')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-motion.jpg" alt="Motion Graphics" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>Brand Promotion Advertising</p>
+      </div>
+      <div class="box" onclick="openModal('project7')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-website.jpg" alt="SPACE STUDIO 웹사이트 디자인" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>Website Renewal</p>
+      </div>
+      <div class="box" onclick="openModal('project8')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-app.jpg" alt="UI/UX App Design" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>UI/UX App Design</p>
+      </div>
+      <div class="box" onclick="openModal('project9')">
+        <div class="thumb-wrap">
+          <img src="img/thumb-brand.jpg" alt="Brand Promotion Advertising" class="thumbnail">
+          <div class="hover-text">VIEW</div>
+        </div>
+        <p>cafe poster Design</p>
+      </div>    </div>
+  </section>
+
+  <section id="contact-wrap">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <h2 class="contact-title">CONTACT ME</h2>
+        <h3>함께 만들고 싶은 이야기,<br>편하게 들려주세요.</h3>
+        <p>그래픽 디자인, 영상 편집, 모션그래픽, 사무작업을 함께하고 싶습니다. 아래 연락처는 포트폴리오 정보입니다.</p>
+      </div>
+      <div class="contact-right">
+        <a href="mailto:haneul.design@example.com" class="contact-box">
+          <span class="label">Email</span>
+          <span class="info">kdu8708@gmail.com</span>
+        </a>
+        <a href="tel:010-0000-0000" class="contact-box">
+          <span class="label">Phone</span>
+          <span class="info">010-5067-7878</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <p>© 2026 김지민 · 포트폴리오</p>
+    <p class="attr">Favicon icon by <a href="">Pixel perfect - Flaticon</a></p>
+  </footer>
+
+  <div id="modal" class="modal" onclick="closeModalOnOutside(event)">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <button id="backToTop" title="Go to top">↑</button>
+  <script src="modal.js"></script>
+  <script src="about.js"></script>
+  <script src="hero.js"></script>
 </body>
-</html>     
+
+</html>
