@@ -5,7 +5,7 @@ const projects = {
   project4: { title: '제네시스 차량 ·광고 영상', image: 'img/p4.jpg', tools: 'Premiere Pro', overview: '제네시스 차량 광고 영상을 AI로 만들었습니다.', video: 'https://drive.google.com/file/d/1QV7EsXQpxQ2bMOq7_GbnEOoszj3em9eO/view?usp=drive_link' },
   project5: { title: '리더스오토플랜 · 상세페이지', image: 'img/p5.jpg', tools: 'Photoshop · Figma', overview: '리더스오토플랜 회사의 상세페이지 입니다.' },
   project6: { title: '몬스터에너지 드링크 · 브랜드 프로모션 광고', image: 'img/p9.jpg', tools: 'Premiere Pro · After Effects', overview: '몬스터에너지드링크 바탕으로 제작한 광고영상 입니다.', video: 'https://drive.google.com/file/d/1_lWxwkwbeqaux_69dyOBdfLJ-wbXw_EC/view?usp=drive_link' },
-  project7: { title: '나이키 · 웹사이트 디자인', image: 'img/p7.jpg?v=3', website: 'space-studio.html', tools: 'Figma · HTML/CSS', overview: '나이키 웹사이트 입니다.' },
+  project7: { title: '나이키 · 웹사이트 디자인', image: 'img/p7.png', website: 'https://yurwa4703-blip.github.io/nike/index.html', tools: 'Figma · HTML/CSS', overview: '나이키 웹사이트 입니다.' },
   project8: { title: '모터로그 · UI/UX 앱 디자인', image: 'img/p8.jpg', tools: 'Figma · Photoshop', overview: '중고차 판매 앱입니다. 자동차 판매부터 상담까지 사용자의 흐름과 화면을 설계했습니다.' },
   project9: { title: '딸기라떼 · 카페 포스터 디자인', image: 'img/p6.jpg', tools: 'Photoshop', overview: '카페에 있는 딸기라떼 포스터 입니다.' }
 };
